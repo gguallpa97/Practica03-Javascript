@@ -1,0 +1,76 @@
+<DOCTYPE html>
+    <html>
+    
+    <head>
+    <meta charset="utf-8" />
+    <title> MI CALCULADORA </title>
+    <link href="../css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../funciones/js/funciones.js"></script>
+    </head>
+    
+
+    <body >
+
+    <h1 class="centradoTitulo">MI CALCULADORA</h1>
+
+    <div class="tamanoBotones">
+
+    <section class="centrarCalculadora">
+
+    <p>  
+        <font size=10 >CASIO</font>
+
+        <textarea type="number" cols="30" rows="10" id="resultado"  disabled ></textarea>
+        <br>
+        <br>
+            <input type="button"  value="<--" id="retr" onclick="retroceder()" >
+            <input type="button"  value="CE" id="limpiar" onClick="limpiar_resultado()">
+            <input type="button"  value="C" id="limpiar" onClick="limpiar_resultado()">
+            <input type="button"  value="+/-" id="limpiar"  onclick="opuest()" >
+            <input type="button" value="Raíz" id="raiz" onclick="raizCuadrada()">
+
+    </p>
+
+    <p> 
+        <input type="button" value="7" onclick="enviar('7')" id="7">
+        <input type="button" value="8" onclick="enviar('8')" id="8">
+        <input type="button" value="9" onclick="enviar('9')" id="9">
+        <input type="button" value="/" id="division" onclick="enviar('/')">
+        <input type="button" value="%" id="porcentaje" onclick="porcent()">
+
+        <br>
+    </p>
+
+    <p> 
+        <input type="button" value="4" onclick="enviar('4')" id="4">
+        <input type="button" value="5" onclick="enviar('5')" id="5">
+        <input type="button" value="6" onclick="enviar('6')" id="6">
+        <input type="button" value="*" id="producto" onclick="enviar('*')">
+        <input type="button" value="1/x" id="fraccion" onclick="inve()">
+        <br>
+    </p>
+
+    <p> 
+        <input type="button" class="margenes"  value="1" onclick="enviar(1)" id="1">
+        <input type="button" class="margenes"  value="2" onclick="enviar(2)" id="2">
+        <input type="button" class="margenes"  value="3" onclick="enviar(3)" id="3">
+        <input type="button" class="margenes"  value="-" id="resta" onclick="enviar(value)">
+        <input type="button" class ="altura "value="=" onclick="calcular()" id="igual">
+
+    </p>
+
+    <p> 
+        <input type="button"  class="largo"  value="0" onclick="enviar(0)" id="0">
+        <input type="button" class="margenes2" value="." onclick="enviar(value)" id="decimal">
+        <input type="button" class="margenes2" value="+" id="suma" onclick="enviar(value)">
+
+
+        <br> 
+    </p>
+
+    </form>
+    </section>
+    </div>
+    </body>
+
+</html>
