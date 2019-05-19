@@ -46,8 +46,7 @@ function validarcedu() {
         }
 
         total = total % 10 ? 10 - total % 10 : 0;
-
-        if (cad.charAt(longitud - 1) == total) {
+		if (cad.charAt(longitud - 1) == total) {
             document.getElementById("mensajeCedula").innerHTML = ("Cedula Válida");
 			//alert('Revise sus campos ingresados')
 
@@ -55,8 +54,14 @@ function validarcedu() {
             document.getElementById("mensajeCedula").innerHTML = ("Cedula Inválida");
         }
     }
+	if ( cad.length<10){
+		//alert("EL CAMPO CÉDULA DEBE TENER 10 CARACTERES ");
+	    document.getElementById("mensajeCedula").innerHTML = ("UN CÉDULA VALIDA TIENE UNA LONGUITUD DE 10 CARACETERES ");
+   }
+   
 
 }
+
 
 
 
@@ -156,7 +161,7 @@ function soloLetras(e) {
         }
     }
     if(letras.indexOf(tecla) == -1 && !tecla_especial){
-    alert('ESTE CAMPO SOLO ADMITE LETRAS ');
+    alert('ESTE CAMPO SOLO ADMITE LETRAS :) ');
         return false;
       }
 }
@@ -166,64 +171,54 @@ function validaNumericos(event) {
     if(event.charCode >= 48 && event.charCode <= 57){
       return true;
      }
-     alert('Solo se admiten numeros en este campo');
+     alert('ESTE CAMPO SOLO ADMITE NÚMEROS :)');
       return false;
 
 }
 
 
-function validar_cedula( form ){
-    var cedula = form.cedula.value;
-    array = cedula.split( "" );
-    num = array.length;
-    
-    if ( num == 10 ){
-        total = 0;
-        digito = (array[9]*1);
-        for( i=0; i < (num-1); i++ ){
-            mult = 0;
-            if ( ( i%2 ) != 0 ) {
-                total = total + ( array[i] * 1 );
-            }
-            else
-            {
-                mult = array[i] * 2;
-                if ( mult > 9 )
-                total = total + ( mult - 9 ); 
-                else
-                    total = total + mult;
-            }
-        }
-
-        decena = total / 10; 
-        decena = Math.floor( decena );
-        decena = ( decena + 1 ) * 10;
-        final = ( decena - total );
-        
-        if ( ( final == 10 && digito == 0 ) || ( final == digito ) ) {
-            alert( "La cedula es correcta" );
-            return true;
-        }
-        
-        else{
-            alert( "la cedula es incorrecta")
-            ;return false;
-        }
-
-       }else 
-       {
-           alert("La cedula exactamente debe contar con 10 digitos" );
-           return false;
-       }
-}
-
 function validarCorreo(){
-	var cad = document.getElementById("cedula").value.trim();
+	
+	var coValida="@est.ups.edu.ec";
+	var coValida2="@ups.edu.ec";
+	
+	var correo = document.getElementById("correo").value.trim();
+	
+	var corr1 = correo.substr(correo.length-15);
+	var corr2 = correo.substr(correo.length-11);
+	
+	if (corr1== coValida ){
+	
+			if( correo.length < 18 ){
+				//alert(correo.length);
+				document.getElementById("mensajeCorreo").innerHTML = ("LA DIRECCION DEBE CONTENER AL MENOS 3 VALORES ALFANUMÉRICOS ");
+			}else{
+				document.getElementById("mensajeCorreo").innerHTML = ("LA DIRECCION DE CORREO ES VÁLIDA");
+			}
+			
+	}	
+	else{
+			document.getElementById("mensajeCorreo").innerHTML = ("LA DIRECCION DE CORREO NO ES PERMITIDA ");
+	}
 	
 	
-	
-	
+	if (corr2== coValida2 ){
 
+			if( correo.length<14 ){
+				document.getElementById("mensajeCorreo").innerHTML = ("LA DIRECCION DEBE CONTENER AL MENOS 3 VALORES ALFANUMÉRICOS ");
+			}else{
+				document.getElementById("mensajeCorreo").innerHTML = ("LA DIRECCION DE CORREO ES VÁLIDA ");
+			}	
+	}	
+	else{
+			document.getElementById("mensajeCorreo").innerHTML = ("LA DIRECCION DE CORREO NO ES PERMITIDA ");
+	}
+	
+	
+	
+	
+	
+	
 
 	
 }

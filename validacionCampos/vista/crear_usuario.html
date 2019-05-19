@@ -11,8 +11,9 @@
 <form id="formulario01" method="POST" action=""  > 
     <legend><Strong> CREACIÓN DE UN USUARIO</Strong> </legend> <br> 
     <label for="cedula">Cedula (*)</label>
-     <input type="text" id="cedula" name="cedula" value="" onblur="validarcedu(this)" required  maxlength="10" placeholder="Ingrese su cédula"  /> <br> 
-     <span id="mensajeCedula" class ="error" >  </span>
+     <input type="text" id="cedula" name="cedula" value="" onblur="validarcedu(this)" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  required  maxlength="10" placeholder="Ingrese su cédula"  /> <br> 
+     <br>
+	 <span id="mensajeCedula" class ="error" >  </span>
 	 <br><br>
 	 
      <label for="nombres">Nombres (*)</label> 
@@ -40,10 +41,12 @@
 	 <br><br>
 	 
 	 <label for="correo">Correo electrónico (*)</label> 
-     <input type="text" id="correo" name="correo" value="" placeholder="Ingrese su correo electrónico ..."  required autofocus /> <br> 
-	 
+     <input type="text" id="correo" name="correo" value="" onblur="validarCorreo(this)" placeholder="Ingrese su correo electrónico ..."  required autofocus /> <br> 
+	 <br>
+	 <span id="mensajeCorreo" class ="error" >  </span>
 	 <br><br>
 	 
+ 
      <label for="correo">Contraseña (*)</label> 
      <input type="password" id="contrasena" name="contrasena" value="" placeholder="Ingrese su contraseña " required autofocus  /> <br> 
       
