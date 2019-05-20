@@ -7,7 +7,8 @@ function validarCamposObligatorios()
                 
                     if (elemento.id == 'cedula'){
                         document.getElementById('mensajeCedula').innerHTML= ' La cedula esta vacia <br>'
-                    }
+						
+					}
 
 
                     elemento.style.border  = '2px red solid'
@@ -170,59 +171,78 @@ function soloLetras(e) {
 function validaNumericos(event) {
     if(event.charCode >= 48 && event.charCode <= 57){
       return true;
-     }
-     alert('ESTE CAMPO SOLO ADMITE NÚMEROS :)');
-      return false;
+     }else{
+		alert('ESTE CAMPO SOLO ADMITE NÚMEROS :)');
+	 }
+     
+     return false;
 
 }
 
 
 function validarCorreo(){
 	
-	var coValida="@est.ups.edu.ec";
-	var coValida2="@ups.edu.ec";
 	
 	var correo = document.getElementById("correo").value.trim();
 	
+	var coValido="@est.ups.edu.ec";
+	var coValido2="@ups.edu.ec";
+
 	var corr1 = correo.substr(correo.length-15);
+	
 	var corr2 = correo.substr(correo.length-11);
 	
-	if (corr1== coValida ){
+	if(corr1 != coValido || corr2 != coValido2  ){
+		document.getElementById("mensajeCorreo").innerHTML = ("DIRECCION DE CORREO INVÁLIDA ");
+		
+	}
 	
+	
+	 if (corr1 ==  coValido){
 			if( correo.length < 18 ){
-				//alert(correo.length);
-				document.getElementById("mensajeCorreo").innerHTML = ("LA DIRECCION DEBE CONTENER AL MENOS 3 VALORES ALFANUMÉRICOS ");
+				document.getElementById("mensajeCorreo").innerHTML = (" LA DIRECCION DEBE CONTENER AL MENOS 3 VALORES ALFANUMÉRICOS ");
 			}else{
-				document.getElementById("mensajeCorreo").innerHTML = ("LA DIRECCION DE CORREO ES VÁLIDA");
+				document.getElementById("mensajeCorreo").innerHTML = (" LA DIRECCION DE CORREO ES VÁLIDA");
 			}
 			
 	}	
-	else{
-			document.getElementById("mensajeCorreo").innerHTML = ("LA DIRECCION DE CORREO NO ES PERMITIDA ");
-	}
 	
 	
-	if (corr2== coValida2 ){
+	else if (corr2 == coValido2 ){
 
 			if( correo.length<14 ){
-				document.getElementById("mensajeCorreo").innerHTML = ("LA DIRECCION DEBE CONTENER AL MENOS 3 VALORES ALFANUMÉRICOS ");
+				document.getElementById("mensajeCorreo").innerHTML = (" LA DIRECCION DEBE CONTENER AL MENOS 3 VALORES ALFANUMÉRICOS ");
 			}else{
-				document.getElementById("mensajeCorreo").innerHTML = ("LA DIRECCION DE CORREO ES VÁLIDA ");
+				document.getElementById("mensajeCorreo").innerHTML = (" LA DIRECCION DE CORREO ES VÁLIDA ");
 			}	
-	}	
-	else{
-			document.getElementById("mensajeCorreo").innerHTML = ("LA DIRECCION DE CORREO NO ES PERMITIDA ");
 	}
 	
+	if(correo.length == 0){
+	document.getElementById("mensajeCorreo").innerHTML = (" EL CAMPO DE CORReO ESTA VACÍO ");
+	
+		}
+		if(correo.length < 10){
+	document.getElementById("mensajeCorreo").innerHTML = (" ");
+	
+		}
 	
 	
 	
 	
 	
-
+	
+	
+	
+	
+	
 	
 }
-
+	
+	
+	
+	
+	
+	
 
 
 
