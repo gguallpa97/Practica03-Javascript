@@ -58,9 +58,10 @@ function carrousel(contenedor) {
  						//alert(cont);
  						img.src = imagenes[lista[cont]];
  						cont++;
-
  					}else {
  						document.getElementById('siguiente').disabled = true;
+
+ 						document.getElementById('atras').disabled = false;
  					}
  				}
 
@@ -73,6 +74,7 @@ function carrousel(contenedor) {
  					}else {
  						
  						document.getElementById('atras').disabled = true;
+ 						document.getElementById('siguiente').disabled = false;
  					}
 
  				} 
