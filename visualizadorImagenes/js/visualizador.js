@@ -1,6 +1,3 @@
-
-
-
 function numerosAleatorios() {
 
 var lista = [0,1,2,3,4,5,6,7,8,9];
@@ -11,10 +8,6 @@ valores = (lista.slice(1,6));
 return valores;
 
 }
-
-
-
-
 
 var imagenes = new Array();
 imagenes[0] = 'images/1.jpg';
@@ -28,47 +21,41 @@ imagenes[7] = 'images/8.jpg';
 imagenes[8] = 'images/9.jpg';
 imagenes[9] = 'images/10.jpg';
 
-
 var cont;
 
 var lista; 
 
-function carrousel(contenedor) {
-	
- 	contenedor.addEventListener('click', e => {
- 			let atras = contenedor.querySelector('.btn1'),
- 			    adelante = contenedor.querySelector('.button'),
- 			    ejecutar = contenedor.querySelector('.boton_personalizado'),
- 			    //DONDE VAMOS A INSERTAR LA IMAGEN
- 				img = contenedor.querySelector('img'),
 
- 				tgt = e.target;
+function iniciar() {
 
- 				if (tgt == ejecutar) {
- 					lista = numerosAleatorios();
- 					alert(lista);
- 					cont = 0;
+	lista = numerosAleatorios();
+	//alert(lista);
+ 	cont = 0;
+
+}
 
 
- 				}
+function siguienteImagen() {
 
- 				//PARA IR HACIA ADELANTE
- 				if (tgt == adelante) {
- 					if (cont < 5 ) {
- 						//alert(cont);
- 						img.src = imagenes[lista[cont]];
+					if (cont < 5 ) {
+ 						
+ 						document.getElementById('matrix').src = imagenes[lista[cont]];
  						cont++;
+						//alert(cont);
+						
  					}else {
  						document.getElementById('siguiente').disabled = true;
 
  						document.getElementById('atras').disabled = false;
+						
  					}
- 				}
 
- 				//PARA IR ATRAS
- 				if (tgt == atras) {
- 					if (cont>0) {
- 						img.src = imagenes[lista[cont-1]];
+}
+
+function imagenAnterior() {
+
+				if (cont>0) {
+ 						document.getElementById('matrix').src = imagenes[lista[cont-1]];
  						cont--;
 
  					}else {
@@ -77,7 +64,7 @@ function carrousel(contenedor) {
  						document.getElementById('siguiente').disabled = false;
  					}
 
- 				} 
+}
 
 
 
@@ -91,22 +78,29 @@ function carrousel(contenedor) {
 
 
 
- 	});
- }
 
-/**
-document.addEventListener("DOMContentLoaded", () => {
-	let contenedor= document.querySelector('.container');
 
-	carrousel(contenedor);
-} );
 
-***/
 
-window.addEventListener('load', function() {
-	let contenedor= document.querySelector('.container');
-	carrousel(contenedor);
 
-  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

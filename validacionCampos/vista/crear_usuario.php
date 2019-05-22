@@ -14,7 +14,7 @@
 <body>
  <?php
 
- echo "<a href='../vista/crear_usuario.html'>“Bienvenido, pasaste las validaciones!”</a>";
+ echo "<a href='../vista/crear_usuario.html'>“BIENVENIDO PASASTE LAS VALIDACIONES !”</a>";
  
  ?>
  </body>
